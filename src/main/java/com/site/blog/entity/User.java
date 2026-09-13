@@ -1,5 +1,7 @@
 package com.site.blog.entity;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import jakarta.persistence. *;
 
 @Entity
@@ -15,6 +17,9 @@ public class User {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "author")
+    private List<Post> posts;
 
     public User(){
 
@@ -67,5 +72,13 @@ public class User {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }
