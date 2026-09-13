@@ -1,7 +1,6 @@
 package com.site.blog.service;
 
 import com.site.blog.entity.Category;
-import com.site.blog.entity.User;
 import com.site.blog.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,7 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public List<User> getAllCategory(){
+    public List<Category> getAllCategories(){
         return categoryRepository.findAll();
     }
 
