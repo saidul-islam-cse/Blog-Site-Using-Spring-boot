@@ -3,7 +3,11 @@ package com.site.blog.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+
+@Entity
+@Table(name = "posts")
 public class Post {
 
     @Id
@@ -27,6 +31,10 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
 
     public Post(){
 

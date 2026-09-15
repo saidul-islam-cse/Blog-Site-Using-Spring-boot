@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/api/posts")
 public class PostController {
 
     private final PostService postService;
@@ -25,17 +27,17 @@ public class PostController {
         return postService.getAllPosts();
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public Optional<Post> getPostById(@PathVariable Long id){
         return postService.getPostById(id);
     }
 
-    @PutMapping("{/id}")
+    @PutMapping("/{id}")
     public Post updatePost(@PathVariable Long id, @RequestBody Post post){
         return postService.updatePost(id, post);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public void deletePost(@PathVariable Long id){
         postService.deletePost(id);
     }

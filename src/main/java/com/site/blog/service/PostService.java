@@ -2,10 +2,12 @@ package com.site.blog.service;
 
 import com.site.blog.entity.Post;
 import com.site.blog.repository.PostRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PostService {
 
     private final PostRepository postRepository;
